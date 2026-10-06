@@ -1,0 +1,50 @@
+{
+  "name": "northduty-health",
+  "version": "1.0.0",
+  "description": "URL health checker - HTTP status, SSL, performance metrics, blank page detection",
+  "main": "index.js",
+  "bin": {
+    "northduty-health": "./index.js"
+  },
+  "scripts": {
+    "check": "node index.js",
+    "worker": "node worker.js",
+    "start": "node worker.js",
+    "test": "node --test",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-gregur:gregurcom/northduty-health.git"
+  },
+  "keywords": [
+    "url-checker",
+    "ssl",
+    "performance",
+    "web-vitals",
+    "playwright"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@aws-sdk/client-sqs": "^3.1019.0",
+    "axe-core": "^4.10.3",
+    "dotenv": "^17.3.1",
+    "playwright": "^1.58.2",
+    "tldts": "^7.4.2",
+    "whois-json": "^2.0.4"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.5.0",
+    "eslint-config-prettier": "^10.1.8",
+    "globals": "^17.7.0",
+    "prettier": "^3.8.5"
+  }
+}

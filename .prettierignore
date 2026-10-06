@@ -1,0 +1,8 @@
+node_modules
+dist
+coverage
+package-lock.json
+.playwright
+.playwright-cli
+.playwright-mcp
+public
