@@ -146,7 +146,6 @@ test('deriveStatus returns succeeded for blank Cloudflare challenge interstitial
 });
 
 test('deriveStatus treats a Cloudflare hard block of the checker as reachable-but-limited', () => {
-
   assert.deepEqual(
     deriveOutcome({
       httpStatus: { code: 403, ok: false },
@@ -222,7 +221,6 @@ test('isBehindBotChallenge flags Cloudflare and vendor challenge interstitials',
 });
 
 test('isBehindBotChallenge is false for a normal page and for hard blocks', () => {
-
   assert.equal(isBehindBotChallenge({ cloudflare: { protected: false }, botProtection: null }), false);
 
   assert.equal(isBehindBotChallenge({ cloudflare: { protected: true, details: { blocked: true } } }), false);
@@ -372,7 +370,6 @@ test('publishResult includes status_reason in the queue message', async () => {
 });
 
 test('deriveStatus treats challenged-and-blocked as a block, not a passable challenge', () => {
-
   const payload = {
     httpStatus: { code: 403, ok: false },
     cloudflare: null,
@@ -390,7 +387,6 @@ test('deriveStatus treats challenged-and-blocked as a block, not a passable chal
 });
 
 test('deriveStatus returns failed when the site redirects off its own domain', () => {
-
   assert.equal(
     deriveStatus({
       httpStatus: { code: 200, ok: true },
@@ -494,7 +490,6 @@ test('deriveStatus returns failed for critical non-HTTP health failures', () => 
 });
 
 test('deriveStatus succeeds for an incomplete cert chain when the page loaded', () => {
-
   assert.equal(
     deriveStatus({
       httpStatus: { code: 200, ok: true },
@@ -515,7 +510,6 @@ test('deriveStatus still fails for an incomplete chain when the page did not loa
 });
 
 test('deriveStatus succeeds for a transient SSL probe failure when the page loaded', () => {
-
   assert.equal(
     deriveStatus({
       httpStatus: { code: 200, ok: true },
@@ -536,7 +530,6 @@ test('deriveStatus still fails for a transient SSL failure when the page did not
 });
 
 test('deriveStatus still fails for a deterministic cert failure even when the page loaded', () => {
-
   assert.equal(
     deriveStatus({
       httpStatus: { code: 200, ok: true },

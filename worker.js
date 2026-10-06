@@ -315,7 +315,6 @@ async function main(options = {}) {
       }
     } catch (error) {
       if (shuttingDown && isAbortError(error)) {
-
         break;
       }
 

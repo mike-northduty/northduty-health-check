@@ -16,7 +16,6 @@ test('buildWhoisCandidates prefers the registrable domain for multi-part ccTLDs'
 });
 
 test('buildWhoisCandidates queries the ICANN-registered domain for private suffixes', () => {
-
   assert.deepEqual(
     buildWhoisCandidates('foo.github.io'),
     ['github.io', 'foo.github.io']
@@ -135,7 +134,6 @@ test('buildDomainResult pattern-matches unknown creation field names', () => {
 });
 
 test('buildDomainResult does not confuse registrar fields with creation dates', () => {
-
   const result = buildDomainResult('example.com', {
     registrarName: 'Example Registrar Inc.',
     creationDate: '2020-01-01T00:00:00Z',
@@ -145,7 +143,6 @@ test('buildDomainResult does not confuse registrar fields with creation dates', 
 });
 
 test('buildDomainResult does not confuse registrationExpirationDate with a creation date', () => {
-
   const result = buildDomainResult('example.kr', {
     registrar: 'Whois Corp.',
     registeredDate: '2018-03-01T00:00:00Z',

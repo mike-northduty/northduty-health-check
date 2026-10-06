@@ -104,7 +104,6 @@ test('a redirect loop terminates instead of hanging', async () => {
 
 test('a hung server is cut off by the timeout rather than holding a worker', async () => {
   await withServer(() => {
-
   }, async (base) => {
     const startedAt = Date.now();
     const result = await checkOverHttp(base, { timeoutMs: 400 });
@@ -175,7 +174,6 @@ test('a redirect into a blocked address stops the check and is recorded', async 
 
 test('a 403 for the identified UA that serves a plain browser UA is reported as client filtering', async () => {
   await withServer((req, res) => {
-
     if (/NorthDuty/i.test(req.headers['user-agent'] || '')) {
       res.writeHead(403, { 'content-type': 'text/html' });
       res.end('<html><body>Forbidden</body></html>');
@@ -230,7 +228,6 @@ test('a 404 is never probed — a missing page is the site\'s problem, not ours'
 });
 
 test('a Clerk-style cookie handshake completes instead of looping', async () => {
-
   const seenCookies = [];
   await withServer((req, res) => {
     const url = new URL(req.url, 'http://x');

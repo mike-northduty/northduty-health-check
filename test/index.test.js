@@ -172,13 +172,11 @@ test('getPageSubcheckTimeout returns the nominal timeout when there is no deadli
 });
 
 test('getPageSubcheckTimeout keeps the nominal timeout when the deadline is far away', () => {
-
   const deadline = Date.now() + 60_000;
   assert.equal(getPageSubcheckTimeout(deadline, TIMEOUTS.PAGE_SUBCHECK), TIMEOUTS.PAGE_SUBCHECK);
 });
 
 test('getPageSubcheckTimeout clamps to the remaining budget minus the deadline margin', () => {
-
   const offset = 3_000;
   const deadline = Date.now() + offset;
   const expectedCeiling = offset - TIMEOUTS.BROWSER_DEADLINE_MARGIN;

@@ -103,7 +103,6 @@ function vitalsPage(fixture) {
         }
 
         observe({ type }) {
-
           if (fixture.unsupported?.includes(type)) {
             throw new TypeError(`unsupported entry type: ${type}`);
           }
@@ -121,7 +120,6 @@ function vitalsPage(fixture) {
       };
 
       try {
-
         return await fn(0, arg);
       } finally {
         global.performance = originalPerformance;
@@ -200,7 +198,6 @@ test('host speed index reports units of work per second from inside the page', a
       const original = global.performance;
       let now = 0;
       global.performance = {
-
         now: () => (now += budgetMs / 40),
       };
       try {

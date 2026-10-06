@@ -1,10 +1,10 @@
 {
-  "name": "northduty-health",
+  "name": "northduty-health-check",
   "version": "1.0.0",
-  "description": "URL health checker - HTTP status, SSL, performance metrics, blank page detection",
+  "description": "Website health checker: HTTP status, SSL, DNS, redirects, Core Web Vitals, JavaScript errors and blank-page detection with Playwright",
   "main": "index.js",
   "bin": {
-    "northduty-health": "./index.js"
+    "northduty-health-check": "./index.js"
   },
   "scripts": {
     "check": "node index.js",
@@ -14,24 +14,31 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "install:browsers": "playwright install chromium"
   },
   "engines": {
     "node": ">=20"
   },
   "repository": {
     "type": "git",
-    "url": "git@github-gregur:gregurcom/northduty-health.git"
+    "url": "git+https://github.com/mike-northduty/northduty-health-check.git"
+  },
+  "homepage": "https://northduty.com",
+  "bugs": {
+    "url": "https://github.com/mike-northduty/northduty-health-check/issues"
   },
   "keywords": [
-    "url-checker",
-    "ssl",
-    "performance",
+    "website-monitoring",
+    "health-check",
+    "uptime",
+    "ssl-checker",
     "web-vitals",
-    "playwright"
+    "playwright",
+    "url-checker"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "NorthDuty (https://northduty.com)",
+  "license": "MIT",
   "dependencies": {
     "@aws-sdk/client-sqs": "^3.1019.0",
     "axe-core": "^4.10.3",

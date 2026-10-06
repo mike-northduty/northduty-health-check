@@ -162,7 +162,6 @@ async function checkWebPage(urlString, signal, partialResult = null, deadline = 
       setField(
         'responseTime',
         await safe('responseTime', () => collectResponseTime(page, loadTime, { completedWith }), {
-
           total: completedWith === 'domcontentloaded' ? (loadTime ?? null) : null,
           totalSource: completedWith === 'domcontentloaded' && loadTime != null ? 'wall-clock' : null,
           navigationCompletedWith: completedWith,
@@ -252,7 +251,6 @@ async function checkWebPage(urlString, signal, partialResult = null, deadline = 
 }
 
 async function index(urlString, options = {}) {
-
   const checks = options.checks === 'uptime' ? 'uptime' : 'full';
   const result = {
     url: urlString,
@@ -413,7 +411,6 @@ async function runHealthChecks(urlString, parsedUrl, result, deadline, checks = 
 }
 
 function isTransientFailure(result) {
-
   if (result.ssrfBlocked && result.ssrfBlocked.length > 0) return false;
 
   if (result.dns && !result.dns.resolved) return true;
@@ -707,7 +704,6 @@ module.exports = {
 };
 
 if (require.main === module) {
-
   process.on('unhandledRejection', (reason) => {
     console.error(JSON.stringify({ error: 'unhandledRejection', detail: String(reason) }));
   });

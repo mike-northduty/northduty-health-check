@@ -55,7 +55,6 @@ test('evaluateOffSite is safe when a URL is missing or invalid', () => {
 });
 
 test('getRedirects reports off-site for a JS redirect with no 3xx chain', () => {
-
   const tracker = createRedirectTracker();
   assert.deepEqual(tracker.getRedirects('https://evil-ads.net/promo', 'https://example-shop.md'), {
     count: 0,
